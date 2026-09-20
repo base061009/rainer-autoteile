@@ -26,18 +26,6 @@ export function Hero() {
             <span className="whitespace-nowrap">Online-Katalog</span>. Für
             Werkstatt, Handel und Flotte, geliefert in ganz Österreich.
           </p>
-          <div className="mt-8 flex justify-center">
-            <div className="inline-flex w-[13.25rem] flex-col gap-3 sm:w-auto sm:flex-row">
-              <CatalogShareSheet />
-              <Button
-                href="/#ueber-uns"
-                variant="secondary"
-                className="w-full px-8 sm:w-[13.25rem]"
-              >
-                Mehr erfahren
-              </Button>
-            </div>
-          </div>
           <ol
             className="mt-8 flex w-full flex-nowrap items-center justify-center gap-2.5 sm:gap-3 md:mt-10 md:gap-4"
             aria-label="So kommen Sie zum Katalog"
@@ -65,6 +53,18 @@ export function Hero() {
               </li>
             ))}
           </ol>
+          <div className="mt-6 flex justify-center sm:mt-8">
+            <div className="inline-flex w-[13.25rem] flex-col gap-3 sm:w-auto sm:flex-row">
+              <CatalogShareSheet />
+              <Button
+                href="/#ueber-uns"
+                variant="secondary"
+                className="w-full px-8 sm:w-[13.25rem]"
+              >
+                Mehr erfahren
+              </Button>
+            </div>
+          </div>
         </div>
         <BrandBar />
       </Container>
