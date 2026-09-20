@@ -10,6 +10,7 @@ import { isFormComplete } from "@/lib/form-complete";
 import { CallPanel } from "@/components/CallPanel";
 import { ContactInquiryPanel } from "@/components/ContactInquiryPanel";
 import { PrivacyConsentField } from "@/components/PrivacyConsentField";
+import { SITE } from "@/lib/site";
 
 type ShareMode = "closed" | "login" | "access" | "call" | "mail";
 
@@ -236,6 +237,7 @@ function LoginActions({
 }
 
 function AccessRequestForm() {
+  const { close } = useShareSheet();
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
   const {
@@ -307,7 +309,14 @@ function AccessRequestForm() {
   }
 
   return (
-    <form className="share-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+    <>
+      <p className="share-card-lead">
+        Sie haben bereits Zugangsdaten? Zum{" "}
+        <a href={SITE.catalogUrl} className="share-faq-link" onClick={close}>
+          Login
+        </a>
+      </p>
+      <form className="share-form" onSubmit={handleSubmit(onSubmit)} noValidate>
       {FIELDS.map((field) => {
         const fieldError = errors[field.name]?.message;
 
@@ -354,5 +363,6 @@ function AccessRequestForm() {
         )}
       </button>
     </form>
+    </>
   );
 }

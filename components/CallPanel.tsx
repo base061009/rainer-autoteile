@@ -28,7 +28,7 @@ export function CallPanel({ onClose }: { onClose: () => void }) {
   return (
     <div className="share-call">
       <p className="share-card-lead">
-        Mehr in den FAQ:{" "}
+        Mehr Informationen in den{" "}
         <a href="/#faq" className="share-faq-link" onClick={onClose}>
           FAQ
         </a>

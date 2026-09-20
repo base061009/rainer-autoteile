@@ -14,6 +14,7 @@ export const SITE = {
   companyRegisterNumber: "FN 636438 p",
   companyRegisterCourt: "Handelsgericht Wien",
   glanzarenaUrl: "https://rainer-glanzarena.at",
+  catalogUrl: process.env.NEXT_PUBLIC_CATALOG_URL ?? "/login", // TODO: echte Katalog-URL einsetzen
   address: {
     street: "Baudißgasse 3C",
     zip: "1110",

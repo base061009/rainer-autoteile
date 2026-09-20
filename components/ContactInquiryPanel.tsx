@@ -74,7 +74,7 @@ export function ContactInquiryPanel({
   return (
     <div className="share-mail">
       <p className="share-card-lead">
-        Mehr in den FAQ:{" "}
+        Mehr Informationen in den{" "}
         <a href="/#faq" className="share-faq-link" onClick={onClose}>
           FAQ
         </a>
@@ -84,8 +84,9 @@ export function ContactInquiryPanel({
           className="share-faq-link"
           onClick={onRequestAccess}
         >
-          Sie benötigen Zugangsdaten für den Katalog?
-        </button>
+          Hier
+        </button>{" "}
+        Zugangsdaten beantragen.
       </p>
 
       <form className="share-form" onSubmit={handleSubmit(onSubmit)} noValidate>
