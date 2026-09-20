@@ -22,15 +22,24 @@ export function Hero() {
             Ihr Großhandelspartner für Autoteile in Österreich
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg">
-            Ob Bremsscheiben, Ölfilter, Zündkerzen oder etwas ganz anderes, im{" "}
-            <span className="whitespace-nowrap">Online-Katalog</span> von Rainer
-            Autoteile finden Sie was Sie brauchen. Wir führen ein großes
-            Sortiment an Qualitätsmarken für Werkstatt, Handel und Flotte, das
-            Sie ganz einfach online bestellen und in ganz Österreich liefern
-            lassen können.
+            Bremsscheiben, Ölfilter, Zündkerzen und mehr, alles im{" "}
+            <span className="whitespace-nowrap">Online-Katalog</span>. Für
+            Werkstatt, Handel und Flotte, geliefert in ganz Österreich.
           </p>
+          <div className="mt-8 flex justify-center">
+            <div className="inline-flex w-[13.25rem] flex-col gap-3 sm:w-auto sm:flex-row">
+              <CatalogShareSheet />
+              <Button
+                href="/#ueber-uns"
+                variant="secondary"
+                className="w-full px-8 sm:w-[13.25rem]"
+              >
+                Mehr erfahren
+              </Button>
+            </div>
+          </div>
           <ol
-            className="mt-8 flex w-full flex-nowrap items-center justify-center gap-1 sm:gap-3 md:mt-10 md:gap-4"
+            className="mt-8 flex w-full flex-nowrap items-center justify-center gap-2.5 sm:gap-3 md:mt-10 md:gap-4"
             aria-label="So kommen Sie zum Katalog"
           >
             {heroSteps.map((step, index) => (
@@ -56,18 +65,6 @@ export function Hero() {
               </li>
             ))}
           </ol>
-          <div className="mt-6 flex justify-center sm:mt-8">
-            <div className="inline-flex w-[13.25rem] flex-col gap-3 sm:w-auto sm:flex-row">
-              <CatalogShareSheet />
-              <Button
-                href="/#faq"
-                variant="secondary"
-                className="w-full px-8 sm:w-[13.25rem]"
-              >
-                Mehr erfahren
-              </Button>
-            </div>
-          </div>
         </div>
         <BrandBar />
       </Container>

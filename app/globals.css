@@ -279,12 +279,12 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: hero-brands-more-shine 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: hero-brands-more-shine 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 @keyframes hero-brands-more-shine {
   0%,
-  32% {
+  55% {
     background-position: 115% 50%;
   }
   100% {
