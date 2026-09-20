@@ -5,7 +5,7 @@ import { PhoneShareTrigger } from "@/components/PhoneShareTrigger";
 
 export function Header() {
   return (
-    <header className="fixed inset-x-0 top-4 z-50 px-2 sm:px-3">
+    <header className="fixed inset-x-0 top-[calc(1rem+env(safe-area-inset-top,0px))] z-50 px-2 sm:px-3">
       <nav
         className="header-bar relative mx-auto flex w-full max-w-5xl items-center overflow-hidden rounded-[26px] border border-navbar-line bg-navbar py-2"
         aria-label="Global"

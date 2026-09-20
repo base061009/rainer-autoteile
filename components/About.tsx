@@ -6,9 +6,9 @@ export function About() {
     <section
       id="ueber-uns"
       aria-labelledby="ueber-uns-heading"
-      className="section-tone section-tone-about relative scroll-mt-28 min-h-screen py-24 sm:py-32"
+      className="section-tone section-tone-about relative scroll-mt-28 min-h-dvh py-24 sm:py-32"
     >
-      <Container className="relative z-10 grid min-h-[calc(100vh-12rem)] items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,28rem)] lg:gap-16">
+      <Container className="relative z-10 grid min-h-[calc(100dvh-12rem)] items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,28rem)] lg:gap-16">
         <div className="max-w-xl">
           <h2
             id="ueber-uns-heading"

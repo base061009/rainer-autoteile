@@ -7,9 +7,9 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="section-tone section-tone-hero relative isolate min-h-screen overflow-hidden text-white"
+      className="section-tone section-tone-hero relative isolate min-h-dvh overflow-hidden text-white"
     >
-      <Container className="relative z-20 flex min-h-screen flex-col items-center justify-center px-4 py-24">
+      <Container className="relative z-20 flex min-h-dvh flex-col items-center justify-center px-4 py-24 pt-[calc(6rem+env(safe-area-inset-top,0px))]">
         <div className="max-w-3xl text-center">
           <h1 className="text-3xl font-semibold tracking-tight text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.45)] sm:text-4xl lg:text-5xl lg:leading-tight">
             Ihr Großhandelspartner für Autoteile in Österreich

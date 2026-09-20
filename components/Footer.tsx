@@ -8,7 +8,7 @@ export function Footer() {
 
   return (
     <footer className="relative z-10 border-t border-white/10 text-white">
-      <Container className="flex flex-col items-center gap-2 py-3 sm:flex-row sm:justify-between sm:py-3.5">
+      <Container className="flex flex-col items-center gap-2 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))] sm:flex-row sm:justify-between sm:pt-3.5 sm:pb-[calc(0.875rem+env(safe-area-inset-bottom,0px))]">
         <Logo href="/" variant="footer" className="h-5 sm:h-6" />
         <nav
           className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-white/65 sm:justify-end"

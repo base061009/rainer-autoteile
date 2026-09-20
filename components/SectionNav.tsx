@@ -43,7 +43,7 @@ export function SectionNav() {
   return (
     <nav
       aria-label="Seitenabschnitte"
-      className="fixed right-3 top-1/2 z-50 -translate-y-1/2 sm:right-5"
+      className="fixed right-[max(0.75rem,env(safe-area-inset-right,0px))] top-1/2 z-50 -translate-y-1/2 sm:right-[max(1.25rem,env(safe-area-inset-right,0px))]"
     >
       <LayoutGroup>
         <ul className="flex flex-col items-center gap-2">
