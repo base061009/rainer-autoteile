@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { sectionNav } from "@/lib/content";
 
 const ITEM_STEP_REM = 2.75;
-const SECTION_IDS = new Set(sectionNav.map((item) => item.id));
+const SECTION_IDS = new Set<string>(sectionNav.map((item) => item.id));
 
 function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -140,7 +140,10 @@ export function SectionNav() {
       const id = hashId(target.getAttribute("href"));
       if (!id || !SECTION_IDS.has(id)) return;
       event.preventDefault();
-      goTo(id, ids.indexOf(id));
+      goTo(
+        id,
+        ids.findIndex((itemId) => itemId === id),
+      );
     }
 
     sync();
