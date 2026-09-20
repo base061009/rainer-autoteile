@@ -310,6 +310,10 @@ function AccessRequestForm() {
 
   return (
     <>
+      <p className="share-card-title share-card-title-explain">
+        Bitte füllen Sie die Felder aus und wir übermitteln Ihnen die
+        Zugangsdaten für den Katalog per Mail.
+      </p>
       <p className="share-card-lead">
         Sie haben bereits Zugangsdaten? Zum{" "}
         <a href={SITE.catalogUrl} className="share-faq-link" onClick={close}>

@@ -141,6 +141,11 @@ export const benefits: FeatureItem[] = [
 
 export const faqs = [
   {
+    question: "Wie funktioniert der Katalog?",
+    answer:
+      "Nach der Freischaltung suchen und bestellen Sie Ersatzteile im Onlinekatalog.",
+  },
+  {
     question: "Wie lange dauert die Freischaltung?",
     answer:
       "Wir prüfen Ihre Angaben in ein bis zwei Werktagen. Danach bekommen Sie die Zugangsdaten per Mail.",

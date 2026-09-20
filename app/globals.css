@@ -368,6 +368,11 @@ body.share-open .site-shell {
   text-align: center;
 }
 
+.share-card-title-explain {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
 .share-card-lead {
   margin: 0 0 16px;
   color: #444444;

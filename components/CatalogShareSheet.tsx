@@ -21,3 +21,22 @@ export function CatalogShareSheet() {
     </Button>
   );
 }
+
+export function CatalogTextLink({ children }: { children: React.ReactNode }) {
+  const { openAccess, mode } = useShareSheet();
+
+  return (
+    <button
+      type="button"
+      className="inline cursor-pointer border-0 bg-transparent p-0 font-[inherit] font-semibold text-white underline decoration-white/45 underline-offset-4 transition-colors hover:decoration-primary touch-manipulation"
+      aria-haspopup="dialog"
+      aria-expanded={mode === "access"}
+      onClick={(event) => {
+        event.stopPropagation();
+        openAccess(event.currentTarget);
+      }}
+    >
+      {children}
+    </button>
+  );
+}

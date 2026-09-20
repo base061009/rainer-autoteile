@@ -5,7 +5,7 @@ export const SITE = {
   legalName: "Rainer Auto Wasch- und Teile GmbH",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rainer-autoteile.at", // TODO: DOMAIN-PLATZHALTER durch echte Domain ersetzen, sobald verfügbar
   description:
-    "Rainer Autoteile beliefert Werkstätten, Autohändler und Flottenbetreiber in ganz Österreich. Großes Sortiment bekannter Marken.",
+    "Rainer Autoteile beliefert Werkstätten, Autohändler und Flottenbetreiber in ganz Österreich. Großes Sortiment an Qualitätsmarken. Im Onlinekatalog suchen und bestellen Sie Ersatzteile.",
   email: "office@rainer-autoteile.at",
   phone: "+43 660 2156738",
   phoneHref: "tel:+436602156738",

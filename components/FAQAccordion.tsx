@@ -7,7 +7,7 @@ export function FAQAccordion() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="section-tone section-tone-faq relative scroll-mt-28 overflow-hidden py-24 pb-12 sm:pt-32 sm:pb-16"
+      className="section-tone section-tone-faq relative scroll-mt-28 overflow-hidden py-16 pb-10 sm:pt-24 sm:pb-14"
     >
       <Container className="relative z-10 max-w-3xl">
         <h2
@@ -17,7 +17,7 @@ export function FAQAccordion() {
           Häufige Fragen
         </h2>
         <p className="mt-4 text-base leading-relaxed text-white/80 sm:text-lg">
-          Fragen zu Konto, Unterlagen und Lieferung.
+          Fragen zu Katalog, Konto und Lieferung.
         </p>
         <div className="mt-10 border-t border-white/15">
           {faqs.map((item) => (
