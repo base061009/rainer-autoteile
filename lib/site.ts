@@ -7,14 +7,16 @@ export const SITE = {
   description:
     "Über 4 Millionen Ersatzteile im Onlinekatalog. Rainer Autoteile beliefert Werkstätten und Händler in ganz Österreich.",
   email: "office@rainer-autoteile.at",
-  phone: "+43 660 2156738",
-  phoneHref: "tel:+436602156738",
+  phone: "+43 660 6960756",
+  phoneHref: "tel:+436606960756",
   instagram: "https://www.instagram.com/rainerautoteile", // TODO: echtes Instagram-Profil einsetzen
   linkedin: "https://www.linkedin.com/company/rainer-autoteile", // TODO: echtes LinkedIn-Profil einsetzen
   companyRegisterNumber: "FN 636438 p",
   companyRegisterCourt: "Handelsgericht Wien",
   glanzarenaUrl: "https://rainer-glanzarena.at",
-  catalogUrl: process.env.NEXT_PUBLIC_CATALOG_URL ?? "/login", // TODO: echte Katalog-URL einsetzen
+  catalogUrl:
+    process.env.NEXT_PUBLIC_CATALOG_URL ??
+    "https://tm2-test.carparts-cat.com/login/rainer",
   address: {
     street: "Baudißgasse 3C",
     zip: "1110",

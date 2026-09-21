@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check, Loader2, X } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { useForm } from "react-hook-form";
 import { contactSchema, type ContactFormValues } from "@/lib/contact-schema";
@@ -42,7 +41,6 @@ export function useShareSheet() {
 }
 
 export function ShareSheetProvider({ children }: { children: ReactNode }) {
-  const router = useRouter();
   const [mode, setMode] = useState<ShareMode>("closed");
   const [origin, setOrigin] = useState("50% 0%");
   const [overlayArmed, setOverlayArmed] = useState(false);
@@ -78,9 +76,9 @@ export function ShareSheetProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const goToLogin = useCallback(() => {
-    router.push("/login");
+    window.location.assign(SITE.catalogUrl);
     setMode("closed");
-  }, [router]);
+  }, []);
 
   const isOpen = mode !== "closed";
 
@@ -316,7 +314,12 @@ function AccessRequestForm() {
       </p>
       <p className="share-card-lead">
         Sie haben bereits Zugangsdaten? Zum{" "}
-        <a href={SITE.catalogUrl} className="share-faq-link" onClick={close}>
+        <a
+          href={SITE.catalogUrl}
+          className="share-faq-link"
+          rel="noopener noreferrer"
+          onClick={close}
+        >
           Login
         </a>
       </p>
