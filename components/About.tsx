@@ -72,7 +72,7 @@ export function About() {
         <figure className="relative overflow-hidden rounded-[26px] ring-1 ring-white/15 shadow-[0_24px_60px_rgba(0,0,0,0.35)]">
           <Image
             src="/standort.jpg"
-            alt="Standort von Rainer Autoteile in Wien, Motor City"
+            alt="Standort von Rainer Autoteile in Wien"
             width={847}
             height={1024}
             className="aspect-[4/5] w-full object-cover object-[center_62%]"
@@ -80,7 +80,7 @@ export function About() {
             priority
           />
           <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-5 pb-4 pt-16 text-sm font-medium text-white">
-            Wien · Motor City
+            Wien
           </figcaption>
         </figure>
       </Container>

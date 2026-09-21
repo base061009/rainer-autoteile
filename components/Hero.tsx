@@ -22,9 +22,9 @@ export function Hero() {
             Ihr Großhandelspartner für Autoteile in Österreich
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg">
-            Bremsscheiben, Ölfilter, Zündkerzen und mehr, alles im{" "}
-            <span className="whitespace-nowrap">Online-Katalog</span>. Für
-            Werkstatt, Handel und Flotte, geliefert in ganz Österreich.
+            Über 4 Millionen Ersatzteile im{" "}
+            <span className="whitespace-nowrap">Online-Katalog</span>. Wir
+            beliefern Werkstätten und Händler in ganz Österreich.
           </p>
           <ol
             className="mt-8 flex w-full flex-nowrap items-center justify-center gap-2.5 sm:gap-3 md:mt-10 md:gap-4"
