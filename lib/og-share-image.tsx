@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "Rainer Autoteile, Autoteile aus Wien für ganz Österreich";
+export const alt = "Rainer Autoteile, Ihr Großhandelspartner für ganz Österreich";
 export const size = {
   width: 1200,
   height: 630,
@@ -49,7 +49,7 @@ export default async function OgShareImage() {
             textAlign: "center",
           }}
         >
-          Autoteile aus Wien für ganz Österreich
+          Ihr Großhandelspartner für ganz Österreich
         </div>
       </div>
     ),
