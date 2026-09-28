@@ -143,7 +143,7 @@ export const faqs = [
   {
     question: "Wie funktioniert der Katalog?",
     answer:
-      "Nach der Freischaltung suchen und bestellen Sie Ersatzteile im Onlinekatalog.",
+      "Sie fragen bei uns ganz einfach per Mail oder Formular die Zugangsdaten für den Online-Katalog an. Nachdem Sie die Zugangsdaten von uns erhalten haben, können Sie sich anmelden und Ersatzteile bestellen.",
   },
   {
     question: "Wie lange dauert die Freischaltung?",

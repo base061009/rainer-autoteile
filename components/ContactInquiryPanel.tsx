@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { inquirySchema, type InquiryFormValues } from "@/lib/inquiry-schema";
 import { isFormComplete } from "@/lib/form-complete";
 import { PrivacyConsentField } from "@/components/PrivacyConsentField";
+import { SITE } from "@/lib/site";
 
 export function ContactInquiryPanel({
   onClose,
@@ -28,6 +29,7 @@ export function ContactInquiryPanel({
     defaultValues: {
       contactName: "",
       companyName: "",
+      email: "",
       message: "",
       privacyAccepted: false,
     },
@@ -37,6 +39,7 @@ export function ContactInquiryPanel({
   const canSubmit = isFormComplete(formValues, [
     "contactName",
     "companyName",
+    "email",
     "message",
     "privacyAccepted",
   ]);
@@ -88,6 +91,9 @@ export function ContactInquiryPanel({
         </button>{" "}
         Zugangsdaten beantragen.
       </p>
+      <p className="share-phone share-mail-address">
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      </p>
 
       <form className="share-form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <label className="share-field">
@@ -115,6 +121,20 @@ export function ContactInquiryPanel({
           />
           {errors.companyName ? (
             <span className="share-field-error">{errors.companyName.message}</span>
+          ) : null}
+        </label>
+
+        <label className="share-field">
+          <span>E-Mail</span>
+          <input
+            {...register("email")}
+            type="email"
+            autoComplete="email"
+            aria-invalid={errors.email ? true : undefined}
+            className="share-input"
+          />
+          {errors.email ? (
+            <span className="share-field-error">{errors.email.message}</span>
           ) : null}
         </label>
 

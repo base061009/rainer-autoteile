@@ -589,6 +589,21 @@ a.share-submit.share-contact-call {
   text-align: center;
 }
 
+.share-mail-address {
+  margin: 0 0 16px;
+}
+
+.share-mail-address a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.share-mail-address a:hover,
+.share-mail-address a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .share-textarea {
   height: auto;
   min-height: 88px;

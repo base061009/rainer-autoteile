@@ -6,6 +6,7 @@ export const inquirySchema = z.object({
     .trim()
     .min(2, "Bitte die Ansprechperson angeben."),
   companyName: z.string().trim().min(2, "Bitte die Firma angeben."),
+  email: z.email("Bitte eine gültige E-Mail-Adresse eingeben."),
   message: z
     .string()
     .trim()

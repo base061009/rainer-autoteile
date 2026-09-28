@@ -48,8 +48,8 @@ export default function ImpressumPage() {
             <h2 className="text-lg font-semibold text-ink">Kontakt</h2>
             <p className="mt-2">
               Telefon:{" "}
-              <a href={SITE.phoneHref} className="text-ink underline-offset-2 hover:underline">
-                {SITE.phone}
+              <a href={SITE.legalPhoneHref} className="text-ink underline-offset-2 hover:underline">
+                {SITE.legalPhone}
               </a>
               <br />
               E-Mail:{" "}

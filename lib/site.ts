@@ -9,6 +9,8 @@ export const SITE = {
   email: "office@rainer-autoteile.at",
   phone: "+43 660 6960756",
   phoneHref: "tel:+436606960756",
+  legalPhone: "+43 660 2156738",
+  legalPhoneHref: "tel:+436602156738",
   instagram: "https://www.instagram.com/rainerautoteile", // TODO: echtes Instagram-Profil einsetzen
   linkedin: "https://www.linkedin.com/company/rainer-autoteile", // TODO: echtes LinkedIn-Profil einsetzen
   companyRegisterNumber: "FN 636438 p",

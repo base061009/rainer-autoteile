@@ -40,7 +40,7 @@ export default function DatenschutzPage() {
               <br />
               {SITE.address.zip} {SITE.address.city}
               <br />
-              Telefon: {SITE.phone}
+              Telefon: {SITE.legalPhone}
               <br />
               E-Mail: {SITE.email}
             </p>
@@ -92,14 +92,13 @@ export default function DatenschutzPage() {
               <strong className="font-semibold text-ink">
                 Kontaktanfrage:
               </strong>{" "}
-              Ansprechperson, Firma, Anliegen.
+              Ansprechperson, Firma, E-Mail-Adresse, Anliegen.
             </p>
             <p className="mt-3">
-              Die Angaben werden nicht veröffentlicht. Eine Anbindung an ein
-              externes CRM besteht derzeit nicht. Wird ein Dienstleister
-              (z.&nbsp;B. Hosting oder E-Mail-Versand) eingesetzt, erfolgt das
-              nur im erforderlichen Umfang und auf Grundlage eines
-              Auftragsverarbeitungsvertrags.
+              Die Angaben werden nicht veröffentlicht. Für den Versand der
+              Anfragen nutzen wir Resend (Resend, Inc.). Die Übermittlung
+              erfolgt nur, um Ihre Nachricht an uns zuzustellen, und auf
+              Grundlage eines Auftragsverarbeitungsvertrags.
             </p>
           </section>
 
