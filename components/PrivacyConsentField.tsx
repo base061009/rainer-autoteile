@@ -1,11 +1,13 @@
 type PrivacyConsentFieldProps = {
   inputProps: React.ComponentProps<"input">;
   error?: string;
+  onOpenPrivacy: () => void;
 };
 
 export function PrivacyConsentField({
   inputProps,
   error,
+  onOpenPrivacy,
 }: PrivacyConsentFieldProps) {
   return (
     <div>
@@ -13,15 +15,17 @@ export function PrivacyConsentField({
         <input type="checkbox" {...inputProps} />
         <span>
           Ich habe die{" "}
-          <a
-            href="/datenschutz"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
             className="share-faq-link"
-            onClick={(event) => event.stopPropagation()}
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              onOpenPrivacy();
+            }}
           >
             Datenschutzerklärung
-          </a>{" "}
+          </button>{" "}
           gelesen und akzeptiert.
         </span>
       </label>

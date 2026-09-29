@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Rainer Autoteile | Autoteile Großhandel Österreich",
     description: SITE.description,
-    // TODO: DOMAIN-PLATZHALTER durch echte Domain ersetzen, sobald verfügbar
     url: SITE.url,
     siteName: "Rainer Autoteile",
     locale: "de_AT",

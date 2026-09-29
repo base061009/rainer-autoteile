@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Container } from "@/components/Container";
+import { LegalShareTrigger } from "@/components/LegalShareTrigger";
 import { Logo } from "@/components/Logo";
 import { SITE } from "@/lib/site";
 
@@ -14,12 +14,8 @@ export function Footer() {
           className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-white/65 sm:justify-end"
           aria-label="Rechtliches"
         >
-          <Link href="/impressum" className="transition-colors hover:text-white">
-            Impressum
-          </Link>
-          <Link href="/datenschutz" className="transition-colors hover:text-white">
-            Datenschutz
-          </Link>
+          <LegalShareTrigger doc="impressum">Impressum</LegalShareTrigger>
+          <LegalShareTrigger doc="datenschutz">Datenschutz</LegalShareTrigger>
           <a
             href={SITE.glanzarenaUrl}
             target="_blank"

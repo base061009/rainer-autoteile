@@ -373,6 +373,53 @@ body.share-open .site-shell {
   line-height: 1.4;
 }
 
+.share-card-legal {
+  display: flex;
+  flex-direction: column;
+  width: min(480px, calc(100vw - 32px));
+  overflow: hidden;
+}
+
+.share-card-legal .share-legal {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.share-legal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #444444;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.share-legal h3 {
+  margin: 0 0 4px;
+  color: #111111;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.share-legal p {
+  margin: 0;
+}
+
+.share-legal p + p {
+  margin-top: 8px;
+}
+
+.share-legal a {
+  color: #111111;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .share-card-lead {
   margin: 0 0 16px;
   color: #444444;

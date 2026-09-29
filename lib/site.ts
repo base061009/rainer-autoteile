@@ -3,7 +3,7 @@ import { faqs } from "@/lib/content";
 export const SITE = {
   name: "Rainer Autoteile",
   legalName: "Rainer Auto Wasch- und Teile GmbH",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rainer-autoteile.at", // TODO: DOMAIN-PLATZHALTER durch echte Domain ersetzen, sobald verfügbar
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://rainer-autoteile.at",
   description:
     "Über 4 Millionen Ersatzteile im Onlinekatalog. Rainer Autoteile beliefert Werkstätten und Händler in ganz Österreich.",
   email: "office@rainer-autoteile.at",

@@ -13,10 +13,12 @@ export function ContactInquiryPanel({
   onClose,
   onSubmitted,
   onRequestAccess,
+  onOpenPrivacy,
 }: {
   onClose: () => void;
   onSubmitted: () => void;
   onRequestAccess: () => void;
+  onOpenPrivacy: () => void;
 }) {
   const [serverError, setServerError] = useState<string | null>(null);
   const {
@@ -160,6 +162,7 @@ export function ContactInquiryPanel({
         <PrivacyConsentField
           inputProps={register("privacyAccepted")}
           error={errors.privacyAccepted?.message}
+          onOpenPrivacy={onOpenPrivacy}
         />
 
         <button

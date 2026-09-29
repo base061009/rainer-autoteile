@@ -17,6 +17,16 @@ const nextConfig: NextConfig = {
         destination: catalogUrl,
         permanent: false,
       },
+      {
+        source: "/impressum",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/datenschutz",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };

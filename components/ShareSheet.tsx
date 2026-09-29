@@ -8,10 +8,12 @@ import { contactSchema, type ContactFormValues } from "@/lib/contact-schema";
 import { isFormComplete } from "@/lib/form-complete";
 import { CallPanel } from "@/components/CallPanel";
 import { ContactInquiryPanel } from "@/components/ContactInquiryPanel";
+import { LegalPanel } from "@/components/LegalPanel";
 import { PrivacyConsentField } from "@/components/PrivacyConsentField";
 import { SITE } from "@/lib/site";
 
-type ShareMode = "closed" | "login" | "access" | "call" | "mail";
+type ShareMode = "closed" | "login" | "access" | "call" | "mail" | "impressum" | "datenschutz";
+type LegalDoc = "impressum" | "datenschutz";
 
 type ShareSheetContextValue = {
   mode: ShareMode;
@@ -19,6 +21,9 @@ type ShareSheetContextValue = {
   openAccess: (trigger: HTMLElement) => void;
   openCall: (trigger: HTMLElement) => void;
   openMail: (trigger: HTMLElement) => void;
+  openImpressum: (trigger: HTMLElement) => void;
+  openDatenschutz: (trigger: HTMLElement) => void;
+  openPrivacy: () => void;
   close: () => void;
 };
 
@@ -42,6 +47,9 @@ export function useShareSheet() {
 
 export function ShareSheetProvider({ children }: { children: ReactNode }) {
   const [mode, setMode] = useState<ShareMode>("closed");
+  const [legalDoc, setLegalDoc] = useState<LegalDoc | null>(null);
+  const legalDocRef = useRef<LegalDoc | null>(null);
+  legalDocRef.current = legalDoc;
   const [origin, setOrigin] = useState("50% 0%");
   const [overlayArmed, setOverlayArmed] = useState(false);
   const [mailSubmitted, setMailSubmitted] = useState(false);
@@ -50,6 +58,12 @@ export function ShareSheetProvider({ children }: { children: ReactNode }) {
   const titleId = useId();
 
   const close = useCallback(() => {
+    if (legalDocRef.current) {
+      legalDocRef.current = null;
+      setLegalDoc(null);
+      return;
+    }
+
     setMode("closed");
     setMailSubmitted(false);
   }, []);
@@ -71,8 +85,27 @@ export function ShareSheetProvider({ children }: { children: ReactNode }) {
 
   const openMail = useCallback((trigger: HTMLElement) => {
     triggerRef.current = trigger;
+    setLegalDoc(null);
     setMailSubmitted(false);
     setMode("mail");
+  }, []);
+
+  const openImpressum = useCallback((trigger: HTMLElement) => {
+    triggerRef.current = trigger;
+    setLegalDoc(null);
+    setMailSubmitted(false);
+    setMode("impressum");
+  }, []);
+
+  const openDatenschutz = useCallback((trigger: HTMLElement) => {
+    triggerRef.current = trigger;
+    setLegalDoc(null);
+    setMailSubmitted(false);
+    setMode("datenschutz");
+  }, []);
+
+  const openPrivacy = useCallback(() => {
+    setLegalDoc("datenschutz");
   }, []);
 
   const goToLogin = useCallback(() => {
@@ -109,10 +142,25 @@ export function ShareSheetProvider({ children }: { children: ReactNode }) {
   }, [close, isOpen]);
 
   useEffect(() => {
+    if (!legalDoc) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      cardRef.current?.querySelector<HTMLElement>(".share-close")?.focus();
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [legalDoc]);
+
+  useEffect(() => {
     if (mode === "closed" || mode === "call") return;
     if (window.matchMedia("(pointer: coarse)").matches) return;
 
     const frame = window.requestAnimationFrame(() => {
+      if (mode === "impressum" || mode === "datenschutz") {
+        cardRef.current?.querySelector<HTMLElement>(".share-close")?.focus();
+        return;
+      }
       if (mode === "access" || mode === "mail") {
         cardRef.current?.querySelector("input")?.focus();
         return;
@@ -133,15 +181,39 @@ export function ShareSheetProvider({ children }: { children: ReactNode }) {
     setOrigin(`${x}px ${y}px`);
   }, [mode]);
 
-  const title =
-    mode === "login"
+  const visibleDoc: LegalDoc | null =
+    legalDoc ?? (mode === "impressum" || mode === "datenschutz" ? mode : null);
+
+  const title = visibleDoc
+    ? visibleDoc === "impressum"
+      ? "Impressum"
+      : "Datenschutzerklärung"
+    : mode === "login"
       ? "Anmelden oder Zugangsdaten beantragen"
       : mode === "call" || mode === "mail"
         ? "Fragen? Wir sind für Sie da."
         : "Zugangsdaten beantragen";
 
+  const showHeading =
+    visibleDoc !== null ||
+    mode === "login" ||
+    mode === "call" ||
+    (mode === "mail" && !mailSubmitted);
+
   return (
-    <ShareSheetContext.Provider value={{ mode, openLogin, openAccess, openCall, openMail, close }}>
+    <ShareSheetContext.Provider
+      value={{
+        mode,
+        openLogin,
+        openAccess,
+        openCall,
+        openMail,
+        openImpressum,
+        openDatenschutz,
+        openPrivacy,
+        close,
+      }}
+    >
       {children}
       {isOpen ? (
         <div
@@ -154,56 +226,61 @@ export function ShareSheetProvider({ children }: { children: ReactNode }) {
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
-            className="share-card share-card-in outline-none"
+            className={`share-card share-card-in outline-none${visibleDoc ? " share-card-legal" : ""}`}
             style={{ transformOrigin: origin }}
             onClick={(event) => event.stopPropagation()}
           >
-            <h2
-              id={titleId}
-              className={
-                mode === "login" ||
-                mode === "call" ||
-                (mode === "mail" && !mailSubmitted)
-                  ? "share-card-title"
-                  : "sr-only"
-              }
-            >
-              {mailSubmitted ? "Nachricht gesendet" : title}
+            <h2 id={titleId} className={showHeading ? "share-card-title" : "sr-only"}>
+              {mailSubmitted && !visibleDoc ? "Nachricht gesendet" : title}
             </h2>
             <button
               type="button"
               className="share-close"
-              aria-label="Schließen"
+              aria-label={legalDoc ? "Zurück" : "Schließen"}
               onClick={close}
             >
               <X className="size-3.5" strokeWidth={2.4} aria-hidden />
             </button>
 
-            {mode === "login" ? (
+            {visibleDoc ? <LegalPanel doc={visibleDoc} /> : null}
+
+            {mode === "login" && !visibleDoc ? (
               <LoginActions
                 onRequestAccess={() => setMode("access")}
                 onContinue={goToLogin}
               />
-            ) : mode === "call" ? (
-              <CallPanel onClose={close} />
-            ) : mode === "mail" ? (
-              mailSubmitted ? (
-                <div className="share-form-success share-form-success-full">
-                  <span className="share-form-success-icon" aria-hidden>
-                    <Check className="size-5" strokeWidth={2.75} />
-                  </span>
-                  <p>Danke, wir haben Ihre Nachricht erhalten.</p>
-                </div>
-              ) : (
+            ) : null}
+
+            {mode === "call" && !visibleDoc ? <CallPanel onClose={close} /> : null}
+
+            {mode === "mail" && mailSubmitted && !visibleDoc ? (
+              <div className="share-form-success share-form-success-full">
+                <span className="share-form-success-icon" aria-hidden>
+                  <Check className="size-5" strokeWidth={2.75} />
+                </span>
+                <p>Danke, wir haben Ihre Nachricht erhalten.</p>
+              </div>
+            ) : null}
+
+            {mode === "mail" && !mailSubmitted ? (
+              <div hidden={visibleDoc !== null}>
                 <ContactInquiryPanel
                   onClose={close}
                   onSubmitted={() => setMailSubmitted(true)}
-                  onRequestAccess={() => setMode("access")}
+                  onRequestAccess={() => {
+                    setLegalDoc(null);
+                    setMode("access");
+                  }}
+                  onOpenPrivacy={openPrivacy}
                 />
-              )
-            ) : (
-              <AccessRequestForm />
-            )}
+              </div>
+            ) : null}
+
+            {mode === "access" ? (
+              <div hidden={visibleDoc !== null}>
+                <AccessRequestForm />
+              </div>
+            ) : null}
           </div>
         </div>
       ) : null}
@@ -235,7 +312,7 @@ function LoginActions({
 }
 
 function AccessRequestForm() {
-  const { close } = useShareSheet();
+  const { close, openPrivacy } = useShareSheet();
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
   const {
@@ -353,6 +430,7 @@ function AccessRequestForm() {
       <PrivacyConsentField
         inputProps={register("privacyAccepted")}
         error={errors.privacyAccepted?.message}
+        onOpenPrivacy={openPrivacy}
       />
 
       <button
