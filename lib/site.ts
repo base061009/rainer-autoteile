@@ -18,7 +18,7 @@ export const SITE = {
   glanzarenaUrl: "https://rainer-glanzarena.at",
   catalogUrl:
     process.env.NEXT_PUBLIC_CATALOG_URL ??
-    "https://tm2-test.carparts-cat.com/login/rainer",
+    "https://tm2.carparts-cat.com/login/rainer",
   address: {
     street: "Baudißgasse 3C",
     zip: "1110",

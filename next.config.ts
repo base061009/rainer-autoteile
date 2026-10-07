@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const catalogUrl =
   process.env.NEXT_PUBLIC_CATALOG_URL ??
-  "https://tm2-test.carparts-cat.com/login/rainer";
+  "https://tm2.carparts-cat.com/login/rainer";
 
 const nextConfig: NextConfig = {
   images: {
