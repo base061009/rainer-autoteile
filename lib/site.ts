@@ -28,9 +28,14 @@ export const SITE = {
   },
 } as const;
 
+export function getHomepageUrl() {
+  return `${SITE.url.replace(/\/$/, "")}/`;
+}
+
 export function getCanonicalUrl(path = "/") {
   const normalized = path.startsWith("/") ? path : `/${path}`;
-  return new URL(normalized, SITE.url).toString();
+  const url = new URL(normalized, getHomepageUrl());
+  return url.pathname === "/" ? getHomepageUrl() : url.toString();
 }
 
 const organizationId = `${SITE.url}/#organization`;
@@ -43,7 +48,7 @@ export function getOrganizationJsonLd() {
     "@id": organizationId,
     name: SITE.name,
     legalName: SITE.legalName,
-    url: SITE.url,
+    url: getHomepageUrl(),
     email: SITE.email,
     telephone: SITE.phone,
     description: SITE.description,
@@ -79,7 +84,7 @@ export function getSiteJsonLd() {
       {
         "@type": "WebSite",
         "@id": websiteId,
-        url: SITE.url,
+        url: getHomepageUrl(),
         name: SITE.name,
         description: SITE.description,
         inLanguage: "de-AT",

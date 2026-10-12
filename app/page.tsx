@@ -5,18 +5,18 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
 import { SectionNav } from "@/components/SectionNav";
-import { getFaqPageJsonLd, SITE } from "@/lib/site";
+import { getFaqPageJsonLd, getHomepageUrl, SITE } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   description: SITE.description,
   alternates: {
-    canonical: "/",
+    canonical: getHomepageUrl(),
   },
   openGraph: {
     title: "Rainer Autoteile | Autoteile Großhandel Österreich",
     description: SITE.description,
-    url: SITE.url,
+    url: getHomepageUrl(),
   },
 };
 

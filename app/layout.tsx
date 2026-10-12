@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
 import { ShareSheetProvider } from "@/components/ShareSheet";
 import { SiteBackground } from "@/components/SiteBackground";
-import { getSiteJsonLd, SITE } from "@/lib/site";
+import { getHomepageUrl, getSiteJsonLd, SITE } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Rainer Autoteile | Autoteile Großhandel Österreich",
     description: SITE.description,
-    url: SITE.url,
+    url: getHomepageUrl(),
     siteName: "Rainer Autoteile",
     locale: "de_AT",
     type: "website",

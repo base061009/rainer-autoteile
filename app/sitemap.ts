@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
-import { SITE } from "@/lib/site";
+import { getHomepageUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
   return [
     {
-      url: SITE.url,
+      url: getHomepageUrl(),
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
