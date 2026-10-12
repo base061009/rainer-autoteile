@@ -153,7 +153,7 @@ export const faqs = [
   {
     question: "Welche Unterlagen brauche ich?",
     answer:
-      "Firmenname, UID Nummer, Firmenbuchnummer (FIN), Ansprechperson und Mailadresse.",
+      "Firmenname, UID Nummer, Firmenadresse, Ansprechperson und Mailadresse.",
   },
   {
     question: "Kann ich auch als Einzelunternehmer ein Konto beantragen?",

@@ -19,15 +19,11 @@ export const contactSchema = z.object({
       /^[A-Za-z]{2}[A-Za-z0-9]+$/,
       "Bitte im Format z. B. ATU12345678 eingeben.",
     ),
-  companyRegisterNumber: z
+  companyAddress: z
     .string()
     .trim()
-    .min(4, "Bitte die Firmenbuchnummer angeben.")
-    .max(24, "Die Firmenbuchnummer ist zu lang.")
-    .regex(
-      /^[A-Za-z0-9][A-Za-z0-9 .\-/]*$/,
-      "Bitte eine gültige Firmenbuchnummer eingeben.",
-    ),
+    .min(5, "Bitte die Firmenadresse angeben.")
+    .max(200, "Die Firmenadresse ist zu lang."),
   privacyAccepted: z.boolean().refine((value) => value === true, {
     message: "Bitte die Datenschutzerklärung akzeptieren.",
   }),

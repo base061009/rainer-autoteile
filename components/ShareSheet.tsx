@@ -34,7 +34,7 @@ const FIELDS = [
   { name: "companyName", label: "Firmenname", type: "text", autoComplete: "organization" },
   { name: "email", label: "E-Mail", type: "email", autoComplete: "email" },
   { name: "vatId", label: "UID-Nummer", type: "text", autoComplete: "off" },
-  { name: "companyRegisterNumber", label: "Firmenbuchnummer (FIN)", type: "text", autoComplete: "off" },
+  { name: "companyAddress", label: "Firmenadresse", type: "text", autoComplete: "street-address" },
 ] as const;
 
 export function useShareSheet() {
@@ -327,7 +327,7 @@ function AccessRequestForm() {
       companyName: "",
       email: "",
       vatId: "",
-      companyRegisterNumber: "",
+      companyAddress: "",
       privacyAccepted: false,
     },
   });
@@ -338,7 +338,7 @@ function AccessRequestForm() {
     "companyName",
     "email",
     "vatId",
-    "companyRegisterNumber",
+    "companyAddress",
     "privacyAccepted",
   ]);
 

@@ -106,7 +106,7 @@ export function LegalPanel({ doc }: { doc: "impressum" | "datenschutz" }) {
         </p>
         <p>
           <strong>Antrag auf Zugangsdaten:</strong> Ansprechperson, Firmenname,
-          E-Mail-Adresse, UID-Nummer, Firmenbuchnummer.
+          E-Mail-Adresse, UID-Nummer, Firmenadresse.
         </p>
         <p>
           <strong>Kontaktanfrage:</strong> Ansprechperson, Firma,

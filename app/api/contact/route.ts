@@ -38,7 +38,7 @@ export async function POST(request: Request) {
           ["Firma", payload.companyName],
           ["E-Mail", payload.email],
           ["UID-Nummer", payload.vatId],
-          ["Firmenbuchnummer", payload.companyRegisterNumber],
+          ["Firmenadresse", payload.companyAddress],
         ]),
       ].join("\n"),
     });
