@@ -32,9 +32,9 @@ const ShareSheetContext = createContext<ShareSheetContextValue | null>(null);
 const FIELDS = [
   { name: "contactName", label: "Ansprechperson", type: "text", autoComplete: "name" },
   { name: "companyName", label: "Firmenname", type: "text", autoComplete: "organization" },
+  { name: "companyAddress", label: "Firmenadresse", type: "text", autoComplete: "street-address" },
   { name: "email", label: "E-Mail", type: "email", autoComplete: "email" },
   { name: "vatId", label: "UID-Nummer", type: "text", autoComplete: "off" },
-  { name: "companyAddress", label: "Firmenadresse", type: "text", autoComplete: "street-address" },
 ] as const;
 
 export function useShareSheet() {
@@ -325,9 +325,9 @@ function AccessRequestForm() {
     defaultValues: {
       contactName: "",
       companyName: "",
+      companyAddress: "",
       email: "",
       vatId: "",
-      companyAddress: "",
       privacyAccepted: false,
     },
   });
@@ -336,9 +336,9 @@ function AccessRequestForm() {
   const canSubmit = isFormComplete(formValues, [
     "contactName",
     "companyName",
+    "companyAddress",
     "email",
     "vatId",
-    "companyAddress",
     "privacyAccepted",
   ]);
 

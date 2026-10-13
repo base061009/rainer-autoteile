@@ -36,9 +36,9 @@ export async function POST(request: Request) {
         formatMailFields([
           ["Ansprechperson", payload.contactName],
           ["Firma", payload.companyName],
+          ["Firmenadresse", payload.companyAddress],
           ["E-Mail", payload.email],
           ["UID-Nummer", payload.vatId],
-          ["Firmenadresse", payload.companyAddress],
         ]),
       ].join("\n"),
     });
