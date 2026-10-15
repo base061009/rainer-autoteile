@@ -5,8 +5,6 @@ const catalogUrl =
   "https://tm2.carparts-cat.com/login/rainer";
 
 const nextConfig: NextConfig = {
-  trailingSlash: true,
-  skipTrailingSlashRedirect: true,
   images: {
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
@@ -20,27 +18,12 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
       {
-        source: "/login/",
-        destination: catalogUrl,
-        permanent: false,
-      },
-      {
         source: "/impressum",
         destination: "/",
         permanent: true,
       },
       {
-        source: "/impressum/",
-        destination: "/",
-        permanent: true,
-      },
-      {
         source: "/datenschutz",
-        destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/datenschutz/",
         destination: "/",
         permanent: true,
       },

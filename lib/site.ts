@@ -29,7 +29,7 @@ export const SITE = {
 } as const;
 
 export function getHomepageUrl() {
-  return `${SITE.url.replace(/\/$/, "")}/`;
+  return SITE.url.replace(/\/$/, "");
 }
 
 export function getCanonicalUrl(path = "/") {

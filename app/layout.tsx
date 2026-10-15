@@ -33,10 +33,6 @@ export const metadata: Metadata = {
     title: "Rainer Autoteile | Autoteile Großhandel Österreich",
     description: SITE.description,
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
 };
 
 export const viewport: Viewport = {

@@ -10,6 +10,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   description: SITE.description,
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
     canonical: getHomepageUrl(),
   },
